@@ -68,6 +68,7 @@ public class TouchSensorOne extends LinearOpMode {
         digitalTouch = hardwareMap.get(DigitalChannel.class, "sensor_digital_left");
         leftDrive = hardwareMap.get(DcMotor.class, "left_Drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_Drive");
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
         // set digital channel to input mode.
         digitalTouch.setMode(DigitalChannel.Mode.INPUT);

@@ -43,15 +43,15 @@ import com.qualcomm.robotcore.util.Range;
  * the autonomous or the teleop period of an FTC match. The names of OpModes appear on the menu
  * of the FTC Driver Station. When an selection is made from the menu, the corresponding OpMode
  * class is instantiated on the Robot Controller and executed.
- *
+ * <p>
  * This particular OpMode just executes a basic Tank Drive Teleop for a two wheeled robot
  * It includes all the skeletal structure that all linear OpModes contain.
- *
+ * <p>
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="DriveSquare", group="Linear Opmode")
+@Autonomous(name = "DriveSquare", group = "Linear Opmode")
 //@Disabled
 public class DriveSquare extends LinearOpMode {
 
@@ -68,7 +68,7 @@ public class DriveSquare extends LinearOpMode {
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
+        leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         double power = 0.5;
 
@@ -80,17 +80,17 @@ public class DriveSquare extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        for (int i=0; i<4; i++){
+        for (int i = 0; i < 4; i++) {
 
-        rightDrive.setPower(power);
-        leftDrive.setPower(power);
+            rightDrive.setPower(power);
+            leftDrive.setPower(power);
 
-        sleep (1000);
+            sleep(1000);
 
-        rightDrive.setPower(power);
-        leftDrive.setPower(-power);
+            rightDrive.setPower(power);
+            leftDrive.setPower(-power);
 
-        sleep (1000);
+            sleep(1000);
         }
 
         rightDrive.setPower(0);
@@ -98,4 +98,4 @@ public class DriveSquare extends LinearOpMode {
 
 
     }
-    }
+}

@@ -61,7 +61,7 @@ public class SampleOpModeLinear extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        telemetry.addData("Status", "Initialized" + runtime.toSting());
+        telemetry.addData("Status", "Initialized" + runtime.toString());
         telemetry.update();
 
         // Initialize the hardware variables. Note that the strings used here as parameters

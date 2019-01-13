@@ -88,32 +88,33 @@ public class TouchSensorDouble extends LinearOpMode {
              * This code give the robot 4 situations and helps the robot alinging and eventually should
              * if the digital channel returns true it's HIGH and the button is unpressed.
              */
-            if (digitalTouchLeft.getState() == true || digitalTouchRight.getState() == true) {
+            while (digitalTouchLeft.getState() == true && digitalTouchRight.getState() == true) {
                 telemetry.addData("Digital Touch Sensors", "Both are not pressed");
                 leftDrive.setPower(1.00);
                 rightDrive.setPower(1.00);
-
+                telemetry.update();
             }
-            else if (digitalTouchLeft.getState() == false || digitalTouchRight.getState() == true) {
+            while (digitalTouchLeft.getState() == false && digitalTouchRight.getState() == true) {
                 telemetry.addData("Digital Touch Sensors", "Left touch is only being pressed");
                 leftDrive.setPower(0);
                 rightDrive.setPower(1.00);
+                telemetry.update();
             }
-            else if (digitalTouchLeft.getState() == true || digitalTouchRight.getState() == false) {
+            while (digitalTouchLeft.getState() == true && digitalTouchRight.getState() == false) {
                 telemetry.addData("Digital Touch Sensors", "Right touch is only being pressed");
                 leftDrive.setPower(1.00);
                 rightDrive.setPower(0);
+                telemetry.update();
             }
 
-            else {
+            while (digitalTouchLeft.getState() == false && digitalTouchRight.getState() == false){
                 telemetry.addData(" Digital Touch Sensors", "Both are pressed");
                 // for single touch sensor
                 double power = 0;
                 leftDrive.setPower(power);
                 rightDrive.setPower(power);
-
+                telemetry.update();
             }
-            telemetry.update();
             sleep (2000);
         }
     }

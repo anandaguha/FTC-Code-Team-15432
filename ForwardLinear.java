@@ -29,12 +29,10 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 /**
@@ -54,11 +52,9 @@ import com.qualcomm.robotcore.util.Range;
 //@Disabled
 public class ForwardLinear extends LinearOpMode {
 
-    private ElapsedTime runtime = new ElapsedTime();
-
-
-   DcMotor leftDrive;
-   DcMotor rightDrive;
+   private ElapsedTime runtime = new ElapsedTime();
+   private DcMotor leftDrive;
+   private DcMotor rightDrive;
 
     // power levels must be between -1 and 1
    double power = 0.5;
@@ -71,7 +67,7 @@ public class ForwardLinear extends LinearOpMode {
 
         leftDrive = hardwareMap.dcMotor.get("Left_Drive");
         rightDrive = hardwareMap.dcMotor.get("Right_Drive");
-
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
         waitForStart();
         runtime.reset();

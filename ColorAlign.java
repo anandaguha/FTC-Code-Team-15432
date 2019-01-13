@@ -99,7 +99,7 @@ public class ColorAlign extends LinearOpMode {
              * since there are two diffrent lines blue and red, change the .blue to .red for the red lines of vice versa for the blue ones
              * LED settings (only 2: on or off)
              * color_sensor.enableLed(true); ----- turns on LED light
-             * color_sensor.enableLed(false); ---- turns on LED light
+             * color_sensor.enableLed(false); ---- turns off LED light
              */
 
 
@@ -108,12 +108,43 @@ public class ColorAlign extends LinearOpMode {
              */
 
             double BlueValLeft = colorSensorLeft.blue();        // these two are given by reading
-            double BlueValRight = colorSensorLeft.blue();       // of the sensors not changeable
+            double BlueValRight = colorSensorRight.blue();       // of the sensors not changeable
            // long waitTimeMili = 500;                    // wait time (given in miliseconds)
-            double noColorDrive = 1.00;                 // power given when there is no line visible
-            double WheelThatNeedsCorrection = 1.00;     // power given to the wheel that needs to be moved forward
+            double noColorDrive = 0.5;                 // power given when there is no line visible
+            double WheelThatNeedsCorrection = 0.1;     // power given to the wheel that needs to be moved forward
             double WheelThatIsOnLine = 0;               // power given to the wheel that is alredy in place
+            /*
+             int BlueValLeftPlus = BlueValLeft + 10;
+             int BlueValLeftMinus = BlueValLeft - 10;
+             int BlueValRightPlus = BlueValRight + 10;
+             int BlueValRightMinus = BlueValRight - 10;
 
+            if (BlueValLeftMinus<= BlueValRight <= BlueValLeftPlus) {
+                telemetry.addData("Digital Touch Sensors", "Blue Value for left Sensor" + BlueValLeft +"," + "Blue Value for right Sensor" + BlueValRight );
+                leftDrive.setPower(noColorDrive);
+                rightDrive.setPower(noColorDrive);
+
+            }
+            else if (BlueValRight > BlueValLeftPlus ) {
+                telemetry.addData("Digital Touch Sensors", "Blue Value for left Sensor" + BlueValLeft +"," + "Blue Value for right Sensor" + BlueValRight );
+                leftDrive.setPower(WheelThatIsOnLine);
+                rightDrive.setPower(WheelThatNeedsCorrection);
+            }
+            else if (colorSensorLeft.blue() < 50  && colorSensorRight.blue() > 50 ) {
+                telemetry.addData("Digital Touch Sensors", "Blue Value for left Sensor" + BlueValLeft +"," + "Blue Value for right Sensor" + BlueValRight );
+                leftDrive.setPower(WheelThatNeedsCorrection);
+                rightDrive.setPower(WheelThatIsOnLine);
+            }
+
+            else {
+                telemetry.addData("Digital Touch Sensors", "Blue Value for left Sensor" + BlueValLeft +"," + "Blue Value for right Sensor" + BlueValRight );
+                // for single touch sensor
+                double power = 0;
+                leftDrive.setPower(power);
+                rightDrive.setPower(power);
+
+            }
+             **/
 
             if (colorSensorLeft.blue() < 50  && colorSensorRight.blue() < 50 ) {
                 telemetry.addData("Digital Touch Sensors", "Blue Value for left Sensor" + BlueValLeft +"," + "Blue Value for right Sensor" + BlueValRight );

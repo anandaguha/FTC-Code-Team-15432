@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name="GamepadTurningLinear", group="Linear Opmode")
-@Disabled
+//@Disabled
 public class GamepadTurningLinear extends LinearOpMode {
 
     // Declare OpMode members.
@@ -68,6 +68,7 @@ public class GamepadTurningLinear extends LinearOpMode {
 
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+
 
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);

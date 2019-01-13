@@ -71,12 +71,13 @@ public class TurningLinear extends LinearOpMode {
 
         leftDrive = hardwareMap.dcMotor.get("Left_Drive");
         rightDrive = hardwareMap.dcMotor.get("Right_Drive");
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
         waitForStart();
         runtime.reset();
 
-        leftDrive.setPower( powerleft);
+        leftDrive.setPower(powerleft);
         rightDrive.setPower(powerright);
 
         sleep (2000);
